@@ -9,5 +9,7 @@ package eirvid;
  * @author PC
  */
 public class MovieRentalSystem {
-    
+    public static void main(String[] args) {
+        MovieRentalSystem system = new MovieRentalSystem();
+    }
 }
