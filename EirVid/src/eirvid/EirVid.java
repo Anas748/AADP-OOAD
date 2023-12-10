@@ -19,6 +19,11 @@ public class EirVid {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+         MovieRentalSystem system = MovieRentalSystem.getInstance();
+        String csvFilePath = "C:\\Users\\PC\\Downloads\\Sam-CA\\MovieRentalSystem\\MovieRentalSystem\\Movie_Metadata.csv";
+        system.loadMovies(csvFilePath); // Update the CSV file name here
+
+        
         
         public List<Movie> recommendMovies() {
         Map<Movie, Integer> movieRentCount = new HashMap<>();
@@ -32,6 +37,6 @@ public class EirVid {
                 }
             }
         }
-    
+        }
     
 
