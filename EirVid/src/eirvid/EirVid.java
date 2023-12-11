@@ -4,9 +4,15 @@
  */
 package eirvid;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -19,9 +25,9 @@ public class EirVid {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        public static void main(String[] args) {
-        MovieRentalSystem system = MovieRentalSystem.getInstance();
-        String csvFilePath = "/Users/apple/Downloads/test/ij/untitled/src/main/java/org/example/Movie_Metadata.csv";
+  
+        MovieRentalSystem system = EirVid.getInstance();
+        String csvFilePath = "Movie_Metadata.csv";
         system.loadMovies(csvFilePath); // Update the CSV file name here
 
         Scanner SC = new Scanner(System.in);
@@ -59,7 +65,7 @@ public class EirVid {
     private Map<String, User> users;
     private List<Movie> movies;
 
-    private MovieRentalSystem() {
+    private EirVidentalSystem() {
         this.users = new HashMap<>();
         this.movies = new ArrayList<>();
     }
@@ -138,6 +144,7 @@ public class EirVid {
             e.printStackTrace();
         }
     }
+}
        
     
     
