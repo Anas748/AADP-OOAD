@@ -17,21 +17,12 @@ public class EirVid {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-<<<<<<< HEAD
-         MovieRentalSystem system = MovieRentalSystem.getInstance();
-        String csvFilePath = "C:\\Users\\PC\\Downloads\\Sam-CA\\MovieRentalSystem\\MovieRentalSystem\\Movie_Metadata.csv";
-        system.loadMovies(csvFilePath); // Update the CSV file name here
+  
 
-        
-        
-        public List<Movie> recommendMovies() {
-=======
         public static void main(String[] args) {
         MovieRentalSystem system = MovieRentalSystem.getInstance();
-        String csvFilePath = "/Users/apple/Downloads/test/ij/untitled/src/main/java/org/example/Movie_Metadata.csv";
-        system.loadMovies(csvFilePath); // Update the CSV file name here
+        
+        MovieLoader.loadMovies();
 
         Scanner SC = new Scanner(System.in);
 
@@ -110,49 +101,5 @@ public class EirVid {
             System.out.println("Invalid movie title.");
         }
     }
-
-    public List<Movie> recommendMovies() {
->>>>>>> 0a1663af7a3dbf339b733f51be66e0180f96a46d
-        Map<Movie, Integer> movieRentCount = new HashMap<>();
-        long fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000);
-
-        for (User user : users.values()) {
-            Map<Movie, Long> rentedMovies = user.getRentedMoviesWithTime();
-            for (Movie movie : rentedMovies.keySet()) {
-                if (rentedMovies.get(movie) >= fiveMinutesAgo) {
-                    movieRentCount.put(movie, movieRentCount.getOrDefault(movie, 0) + 1);
-                }
-            }
-        }
-<<<<<<< HEAD
-        }
-=======
-
-        return movieRentCount.entrySet().stream()
-                .sorted(Map.Entry.<Movie, Integer>comparingByValue().reversed())
-                .limit(5)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toList());
-    }
-         public void loadMovies(String csvFilePath) {
-        try {
-            Scanner sc = new Scanner(new FileReader(csvFilePath));
-            // String[] nextLine;
-            sc.useDelimiter(",");
-            sc.nextLine(); // skip the first line
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String[] parts = line.split(",");
-                String title = parts[1];
-                double price = Double.parseDouble(parts[parts.length - 1]);
-                addMovie(title.strip(), price);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-       
-    
->>>>>>> 0a1663af7a3dbf339b733f51be66e0180f96a46d
-    
-
+}
+ 
