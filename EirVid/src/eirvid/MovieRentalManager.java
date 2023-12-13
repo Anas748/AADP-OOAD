@@ -20,6 +20,6 @@ public class MovieRentalManager {
 
     private MovieRentalManager() {
         this.users = new HashMap<>();
-        this.movies = new ArrayList<>();
+        this.movies = new ArrayList<>(); 
     }
 }
