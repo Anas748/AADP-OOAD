@@ -6,8 +6,14 @@ package eirvid;
 
 /**
  *
- * @author PC
+ * @author Haider
  */
+
+
 public class CsvReader {
     
+    public static String readCsvFilePath() {
+        // Provide the CSV file path directly in the code
+        return "Movie_Metadata.csv"; // it will read the csv.file from the folder
+    }
 }
