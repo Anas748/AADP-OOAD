@@ -55,18 +55,6 @@ public class EirVid {
         this.movies.add(new Movie(title, price));
     }
 
-    public void createUser(String email, String password) {
-        this.users.put(email, new User(email, password));
-    }
-
-    public User login(String email, String password) {
-        User user = users.get(email);
-        if (user != null && password.equals(user.getPassword())) {
-            return user;
-        }
-        return null;
-    }
-
     public void rentMovie(String email, String title) {
         User user = this.users.get(email);
         Movie movie = this.movies.stream().filter(m -> m.getTitle().equals(title.strip())).findFirst().orElse(null);
