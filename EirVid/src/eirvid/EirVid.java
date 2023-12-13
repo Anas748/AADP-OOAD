@@ -31,35 +31,8 @@ public class EirVid {
         String csvFilePath = "Movie_Metadata.csv";
         system.loadMovies(csvFilePath); // Update the CSV file name here
 
-        Scanner SC = new Scanner(System.in);
-
-        while (true) {
-
-            System.out.print("\n\nEnter email (Enter 'X' to Exit): ");
-            String email = SC.nextLine();
-            if(Objects.equals(email, "X")) {
-                break;
-            }
-
-            System.out.print("Enter password: ");
-            String pass = SC.nextLine();
-
-            // Create a new user or log in if the user already exists
-            User loggedInUser = system.login(email, pass);
-            if (loggedInUser == null) {
-                // If the user does not exist, create a new user
-                system.createUser(email, pass);
-                loggedInUser = system.login(email, pass);
-            }
-
-            // Rest of the code remains the same
-            if (loggedInUser != null) {
-                Menu menu = new Menu(loggedInUser);
-                menu.displayMenu();
-            } else {
-                System.out.println("Invalid email or password.");
-            }
-        }
+       
+        
     }
 
     private static MovieRentalSystem instance;
