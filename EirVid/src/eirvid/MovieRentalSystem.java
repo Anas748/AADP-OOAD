@@ -12,4 +12,12 @@ public class MovieRentalSystem {
     public static void main(String[] args) {
         MovieRentalSystem system = new MovieRentalSystem();
     }
+
+    static MovieRentalSystem getInstance() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    void loadMovies(String csvFilePath) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
