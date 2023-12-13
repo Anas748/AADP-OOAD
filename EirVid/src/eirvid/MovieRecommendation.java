@@ -24,6 +24,33 @@ public class MovieRecommendation {
                 .limit(5)
                 .collect(Collectors.toList());
     }
+      
+      //Create cases to filter old, popular and new movies on user preferences
+      private boolean isMovieMatchingPreference(Movie movie, String preference) {
+        switch (preference.toLowerCase()) {
+            
+            case "old":
+                //return movies price 6.99 for old
+                return movie.getPrice() == 6.99;
+                
+            case "popular":
+                //return movies price 7.99 for popular
+                return movie.getPrice() == 7.99;
+                
+            case "new":
+                //return movies price 9.99 for new
+                return movie.getPrice() == 9.99;
+                
+            default:
+                return false; // show default behavior if preference is not recognized
     
-    
+         }
+      }
+  // Replace this method with actual way of getting movies
+    private List<Movie> getMovies() {
+      MovieRentalManager movieRentalManager = MovieRentalManager.getInstance();
+
+    // Retrieve the list of movies from the class MovieRentalManager
+    return movieRentalManager.getMovies();
+    }
 }
