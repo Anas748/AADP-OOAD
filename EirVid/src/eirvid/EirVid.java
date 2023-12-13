@@ -4,9 +4,15 @@
  */
 package eirvid;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -17,7 +23,58 @@ public class EirVid {
     /**
      * @param args the command line arguments
      */
+
+    public static void main(String[] args) {
+        // TODO code application logic here
   
+        MovieRentalSystem system = EirVid.getInstance();
+        String csvFilePath = "Movie_Metadata.csv";
+        system.loadMovies(csvFilePath); // Update the CSV file name here
+
+       
+        
+    }
+
+    private static MovieRentalSystem instance;
+    private Map<String, User> users;
+    private List<Movie> movies;
+
+    private EirVidentalSystem() {
+        this.users = new HashMap<>();
+        this.movies = new ArrayList<>();
+    }
+
+    public static MovieRentalSystem getInstance() {
+        if (instance == null) {
+            instance = new MovieRentalSystem();
+        }
+        return instance;
+    }
+
+    public void addMovie(String title, double price) {
+        this.movies.add(new Movie(title, price));
+    }
+
+    public void rentMovie(String email, String title) {
+        User user = this.users.get(email);
+        Movie movie = this.movies.stream().filter(m -> m.getTitle().equals(title.strip())).findFirst().orElse(null);
+
+        if (movie != null) {
+            user.rentMovie(movie);
+            System.out.println("x:-----------------Movie rented successfully!-----------------:x");
+            System.out.println("Movie: " + movie.getTitle());
+            System.out.println("Price: " + movie.getPrice());
+            System.out.println("Customer: " + user.getEmail());
+        } else {
+            System.out.println("Invalid movie title.");
+        }
+    }
+
+    public List<Movie> recommendMovies() {
+        Map<Movie, Integer> movieRentCount = new HashMap<>();
+        long fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000);
+
+//origin/master
 
         public static void main(String[] args) {
         MovieRentalSystem system = MovieRentalSystem.getInstance();
@@ -53,7 +110,38 @@ public class EirVid {
                 System.out.println("Invalid email or password.");
             }
         }
+//<<<<<< HEAD
+
+        return movieRentCount.entrySet().stream()
+                .sorted(Map.Entry.<Movie, Integer>comparingByValue().reversed())
+                .limit(5)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toList());
     }
+         public void loadMovies(String csvFilePath) {
+        try {
+            Scanner sc = new Scanner(new FileReader(csvFilePath));
+            // String[] nextLine;
+            sc.useDelimiter(",");
+            sc.nextLine(); // skip the first line
+            while (sc.hasNext()) {
+                String line = sc.nextLine();
+                String[] parts = line.split(",");
+                String title = parts[1];
+                double price = Double.parseDouble(parts[parts.length - 1]);
+                addMovie(title.strip(), price);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+       
+    
+    
+
+    
+// origin/master
 
     private static MovieRentalSystem instance;
     private Map<String, User> users;

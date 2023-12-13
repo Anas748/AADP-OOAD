@@ -4,20 +4,30 @@
  */
 package eirvid;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
- * @author PC
+ * @Muhammad Ahmad 2021385
  */
-class MovieRentalManager {
+public class MovieRentalManager {
+    private static MovieRentalManager instance;
 
     static MovieRentalManager getInstance() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    private Map<String, User> users;
+    private List<Movie> movies;
+
+    private MovieRentalManager() {
+        this.users = new HashMap<>();
+        this.movies = new ArrayList<>(); 
     }
 
     List<Movie> getMovies() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
 }
