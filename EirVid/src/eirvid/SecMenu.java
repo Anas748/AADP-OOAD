@@ -13,14 +13,14 @@ import java.util.Scanner;
 public class SecMenu {
      private Scanner scanner = new Scanner(System.in);
     private MovieRentalManager manager;
-    private MovieRecommend reco;
+    private MovieRecommendation reco;
     private User user;
  
 
     public SecMenu(User user, MovieRentalManager manager) {
         this.user = user;
         this.manager = manager;
-        this.reco = new MovieRecommend(); // You may need to initialize MovieRecommend appropriately
+        this.reco = new MovieRecommendation();
     }
 
     public void displayMenu() {
