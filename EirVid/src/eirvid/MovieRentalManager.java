@@ -13,6 +13,7 @@ package eirvid;
  */
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class MovieRentalManager {
@@ -22,7 +23,6 @@ public class MovieRentalManager {
     // Lists to store users, movies, and instances of related managers.
     private  List<User> users;
     private  List<Movie> movies;
-    private  MovieFilterManager movieFilterManager;
     private  MovieAdder movieAdder;
     private  RentMovie rentalManager;
       
@@ -30,7 +30,6 @@ public class MovieRentalManager {
     public MovieRentalManager() {                    // Private constructor initializes lists and manager instances.
         this.users = new ArrayList<>();
         this.movies = new ArrayList<>();
-        this.movieFilterManager = new MovieFilterManager(this.movies);
         this.movieAdder = new MovieAdder(this.movies);
         this.rentalManager = new RentMovie(this.users, this.movies);
     }
@@ -40,6 +39,7 @@ public class MovieRentalManager {
         }
         return instance;
     }
+    
 
     public List<User> getUsers() {
         return new ArrayList<>(users);
@@ -47,10 +47,26 @@ public class MovieRentalManager {
 
     public List<Movie> getMovies() {
         return new ArrayList<>(movies);
+        
+    }
+     public List<Movie> getRecommendedMovies(String preference) {
+        // Filter movies based on user preference and price
+        return this.movies.stream()
+                .filter(movie -> isMovieMatchingPreference(movie, preference))
+                .collect(Collectors.toList());
     }
 
-    public List<Movie> filterMovies(String preference) {
-        return (List<Movie>) movieFilterManager.filterMovies(preference);
+    private boolean isMovieMatchingPreference(Movie movie, String preference) {
+        switch (preference.toLowerCase()) {
+            case "old":
+                return movie.getPrice() == 6.99;
+            case "popular":
+                return movie.getPrice() == 7.99;
+            case "new":
+                return movie.getPrice() == 9.99;
+            default:
+                return false; // Default behavior if preference is not recognized
+        }
     }
 
     public void addMovie(String title, double price) {

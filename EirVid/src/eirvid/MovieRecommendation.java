@@ -13,12 +13,10 @@ import java.util.stream.Collectors;
  */
 public class MovieRecommendation {
       public List<Movie> recommendMovies(User user, String preference) {
-        
         // Movies will filter based on user preference and price
         List<Movie> filteredMovies = getMovies().stream()
                 .filter(movie -> isMovieMatchingPreference(movie, preference))
                 .collect(Collectors.toList());
-
         // Limit the result to 5 movies
         return filteredMovies.stream()
                 .limit(5)
@@ -49,7 +47,6 @@ public class MovieRecommendation {
   // Replace this method with actual way of getting movies
     private List<Movie> getMovies() {
       MovieRentalManager movieRentalManager = MovieRentalManager.getInstance();
-
     // Retrieve the list of movies from the class MovieRentalManager
     return movieRentalManager.getMovies();
     }

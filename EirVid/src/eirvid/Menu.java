@@ -43,6 +43,7 @@ public class Menu {
                    
                      MovieLoader.loadMovies(manager);      //responsible for loading movies into the manager object.
                      MovieRentalManager mrm = new MovieRentalManager();
+                     
                      SecMenu em = new SecMenu(registration.user, mrm); //it is responsible for displaying a secondary menu.
                      em.displayMenu();  //displays the secondary menu to the user.
                     }

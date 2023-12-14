@@ -6,13 +6,15 @@ package eirvid;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
  *
- * @author Haider
+ * @author Haider 
  */
 public class MovieLoader {
+   
 
     public static void loadMovies(MovieRentalManager manager) {
         //use string for csv file path to read file from CsvReader class file
@@ -33,9 +35,11 @@ public class MovieLoader {
                 
                 //use double for the price as decimal
                 double price = Double.parseDouble(parts[parts.length - 1]);
-                
+                manager.addMovie(title.trim(), price);
                 //print the title and price of added movie
                 System.out.println("Add Movie: " + title.trim() + ", Price: " + price);
+                
+                
             }
         } catch (IOException e) {
             e.printStackTrace();

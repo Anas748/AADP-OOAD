@@ -23,14 +23,13 @@ public class RentMovie {
 
     // Initiates the movie rental process for a given user and movie title.
     public void rentMovie(String email, String title) {
+        
         User user = this.users.stream()
                 .filter(u -> u.getEmail().equalsIgnoreCase(email))
                 .findFirst()
                 .orElse(null);
 
-        Movie movie = this.movies.stream()
-
-                .filter(m -> m.getTitle().equals(title))
+        Movie movie = this.movies.stream().filter(m -> m.getTitle().equals(title))
                 .findFirst()
                 .orElse(null);
 
