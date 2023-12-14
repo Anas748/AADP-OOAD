@@ -1,5 +1,13 @@
-public class Menu{
-    private Scanner scanner = new Scanner(System.in);
-    private MovieRentalSystem system;
-    private User user;
-}
+package eirvid;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author Abdul Rehman  2021333 
+ */
+public class Menu {
+    public void Start(){
+        UserRep userRepository = new StoreUser();
+        UserValidation emailValidator = new ValidEmail();
+        UserValidation passwordValidator = new ValidPass();
