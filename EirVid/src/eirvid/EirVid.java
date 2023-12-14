@@ -27,10 +27,9 @@ public class EirVid {
     public static void main(String[] args) {
         // TODO code application logic here
   
-        MovieRentalSystem system = EirVid.getInstance();
-        String csvFilePath = "Movie_Metadata.csv";
-        system.loadMovies(csvFilePath); // Update the CSV file name here
-
+        MovieRentalManager manager = MovieRentalManager.getInstance();
+       
+        MovieLoader.loadMovies(manager);
        
         
     }
@@ -70,19 +69,6 @@ public class EirVid {
         }
     }
 
-    public List<Movie> recommendMovies() {
-        Map<Movie, Integer> movieRentCount = new HashMap<>();
-        long fiveMinutesAgo = System.currentTimeMillis() - (5 * 60 * 1000);
-
-//origin/master
-
-        public static void main(String[] args) {
-        MovieRentalSystem system = MovieRentalSystem.getInstance();
-        
-        MovieLoader.loadMovies();
-
-        Scanner SC = new Scanner(System.in);
-
         while (true) {
 
             System.out.print("\n\nEnter email (Enter 'X' to Exit): ");
@@ -110,7 +96,7 @@ public class EirVid {
                 System.out.println("Invalid email or password.");
             }
         }
-//<<<<<< HEAD
+
 
         return movieRentCount.entrySet().stream()
                 .sorted(Map.Entry.<Movie, Integer>comparingByValue().reversed())
@@ -118,25 +104,7 @@ public class EirVid {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
     }
-         public void loadMovies(String csvFilePath) {
-        try {
-            Scanner sc = new Scanner(new FileReader(csvFilePath));
-            // String[] nextLine;
-            sc.useDelimiter(",");
-            sc.nextLine(); // skip the first line
-            while (sc.hasNext()) {
-                String line = sc.nextLine();
-                String[] parts = line.split(",");
-                String title = parts[1];
-                double price = Double.parseDouble(parts[parts.length - 1]);
-                addMovie(title.strip(), price);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
-       
+     
     
     
 
