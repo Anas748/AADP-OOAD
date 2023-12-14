@@ -1,0 +1,14 @@
+package eirvid;
+
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Abdul Rehman
+ */
+public class SecMenu {
+    private Scanner scanner = new Scanner(System.in);
+    private MovieRentalManager manager;
+    private MovieRecommend reco;
+    private User user;
