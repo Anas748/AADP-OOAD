@@ -40,7 +40,7 @@ public class RentMovie {
             user.rentMovie(movie);
 
             // Display rental information
-            System.out.println("x:--HUURRRAAAHHH! /n Movie rented successfully!----");
+            System.out.println("Movie rented successfully!----");
             System.out.println("Movie: " + movie.getTitle());
             System.out.println("Price: " + movie.getPrice());
             System.out.println("Customer: " + user.getEmail());
