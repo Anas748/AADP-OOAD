@@ -12,10 +12,9 @@ import java.util.List;
  * RentalManager, manages the movie rental process by interacting with user and movie data.
  */
 public class RentMovie {
-
     private List<User> users;   // List to store user data
     private List<Movie> movies; // List to store movie data
-
+    
     // Initializes the RentalManager with lists of users and movies.
     public RentMovie(List<User> users, List<Movie> movies) {
         this.users = users;
@@ -30,6 +29,7 @@ public class RentMovie {
                 .orElse(null);
 
         Movie movie = this.movies.stream()
+
                 .filter(m -> m.getTitle().equals(title))
                 .findFirst()
                 .orElse(null);
@@ -48,5 +48,4 @@ public class RentMovie {
             System.out.println("Invalid email or movie title.");
         }
     }
-    
 }

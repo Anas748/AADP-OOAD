@@ -16,7 +16,7 @@ import java.util.List;
 
 
 public class MovieRentalManager {
-    
+
    public static MovieRentalManager instance;       // Singleton instance to ensure only one instance of MovieRentalManager exists.
     
     // Lists to store users, movies, and instances of related managers.
@@ -50,7 +50,7 @@ public class MovieRentalManager {
     }
 
     public List<Movie> filterMovies(String preference) {
-        return movieFilterManager.filterMovies(preference);
+        return (List<Movie>) movieFilterManager.filterMovies(preference);
     }
 
     public void addMovie(String title, double price) {
