@@ -31,7 +31,7 @@ public class MovieRentalManager {
         this.users = new ArrayList<>();
         this.movies = new ArrayList<>();
         this.movieAdder = new MovieAdder(this.movies);
-        this.rentalManager = new RentMovie(this.users, this.movies);
+        this.rentalManager = new RentMovie(this.users,this.movies);
     }
     public static MovieRentalManager getInstance() {
         if (instance == null) {

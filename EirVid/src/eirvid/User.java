@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 public class User {
-     private String name; // User name
+    private String name; // User name
     private String email; // User email 
     private String password; // User password for authentication
     private final Map<Movie, Long> rentedMovies; // Movies rented by the user 
