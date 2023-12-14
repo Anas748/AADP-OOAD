@@ -26,12 +26,8 @@ public class EirVid {
 
     public static void main(String[] args) {
         // TODO code application logic here
-  
-        MovieRentalManager manager = MovieRentalManager.getInstance();
-       
-        MovieLoader.loadMovies(manager);
-       
-        
+        Menu menu = new Menu();
+        menu.Start(); 
     }
 }
 

@@ -4,6 +4,8 @@
  */
 package eirvid;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Abdul Rehman
