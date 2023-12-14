@@ -18,14 +18,14 @@ import java.util.List;
 
 public class MovieRentalManager {
     
-    private static MovieRentalManager instance;       // Singleton instance to ensure only one instance of MovieRentalManager exists.
+    public static MovieRentalManager instance;       // Singleton instance to ensure only one instance of MovieRentalManager exists.
     
     // Lists to store users, movies, and instances of related managers.
-    private final List<User> users;
-    private final List<Movie> movies;
-    private final MovieFilterManager movieFilterManager;
-    private final MovieAdder movieAdder;
-    private final RentMovie rentalManager;
+    private  List<User> users;
+    private  List<Movie> movies;
+    private  MovieFilterManager movieFilterManager;
+    private  MovieAdder movieAdder;
+    private  RentMovie rentalManager;
       
     
     private MovieRentalManager() {                    // Private constructor initializes lists and manager instances.
@@ -51,7 +51,7 @@ public class MovieRentalManager {
     }
 
     public List<Movie> filterMovies(String preference) {
-        return movieFilterManager.filterMovies(preference);
+        return (List<Movie>) movieFilterManager.filterMovies(preference);
     }
 
     public void addMovie(String title, double price) {
