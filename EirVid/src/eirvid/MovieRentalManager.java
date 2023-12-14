@@ -25,7 +25,7 @@ public class MovieRentalManager {
     private final List<Movie> movies;
     private final MovieFilterManager movieFilterManager;
     private final MovieAdder movieAdder;
-    private final RentalManager rentalManager;
+    private final RentMovie rentalManager;
       
     
     private MovieRentalManager() {                    // Private constructor initializes lists and manager instances.
