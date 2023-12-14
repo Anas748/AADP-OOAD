@@ -37,33 +37,4 @@ public class MovieRentalManager {
     }
 
     
-    public static MovieRentalManager getInstance() {      //returns the instance of MovieRentalManager.
-        if (instance == null) {
-            instance = new MovieRentalManager();
-        }
-        return instance;
-    }
-
-    public List<User> getUsers() {                        // Getter method to retrieve a copy of the user list.
-
-        return new ArrayList<>(users);
-    }
-
-   
-    public List<Movie> getMovies() {                      // Getter method to retrieve a copy of the movie list.
-        return new ArrayList<>(movies);
-    }
-
     
-    public List<Movie> filterMovies(String preference) {     // Method to filter movies based on a user's preference using the MovieFilterManager.
-        return movieFilterManager.filterMovies(preference);
-    }
-
-    
-    public void addMovie(String title, double price) {     // Method to add a new movie using the MovieAdder.
-        movieAdder.addMovie(title, price);
-    }
-
-    
-    public void RentMovie(String email, String title) {      // Method to rent a movie for a user using the RentalManager.
-       
