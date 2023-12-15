@@ -15,12 +15,13 @@ public class SecMenu {
     private MovieRentalManager manager;
     private MovieRecommendation reco;
     private User user;
- 
+    
 
     public SecMenu(User user, MovieRentalManager manager) {
         this.user = user;
         this.manager = manager;
         this.reco = new MovieRecommendation();
+        
     }
 
     public void displayMenu() {

@@ -37,9 +37,7 @@ public class MovieLoader {
                 double price = Double.parseDouble(parts[parts.length - 1]);
                 manager.addMovie(title.trim(), price);
                 //print the title and price of added movie
-                System.out.println("Add Movie: " + title.trim() + ", Price: " + price);
-                
-                
+                System.out.println("Add Movie: " + title.trim() + ", Price: " + price);  
             }
         } catch (IOException e) {
             e.printStackTrace();

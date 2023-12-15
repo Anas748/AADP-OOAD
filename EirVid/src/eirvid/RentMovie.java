@@ -34,7 +34,7 @@ public class RentMovie {
                 .orElse(null);
 
         // Check if both user and movie are found
-        if (user != null && movie != null) {
+        if ( movie != null) {
             // Rent the movie for the user
             user.rentMovie(movie);
 
