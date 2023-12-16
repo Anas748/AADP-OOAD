@@ -24,5 +24,12 @@ public class Movie {
     public double getPrice() {
         return price;
     }
+      @Override
+    public String toString() {
+        return "Movie{" +
+               "title='" + title + '\'' +
+               ", price=" + price +
+               '}';
+    }
 }
 

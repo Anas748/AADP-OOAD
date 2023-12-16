@@ -40,11 +40,8 @@ public class Menu {
                 case 2:                         //If the value of choice is 2, the program will execute the code
                     if( login.loginUser() == true){
                      MovieRentalManager manager = MovieRentalManager.getInstance();
-                   
                      MovieLoader.loadMovies(manager);      //responsible for loading movies into the manager object.
-                     MovieRentalManager mrm = new MovieRentalManager();
-                     
-                     SecMenu em = new SecMenu(registration.user, mrm); //it is responsible for displaying a secondary menu.
+                     SecMenu em = new SecMenu(registration.user, manager); //it is responsible for displaying a secondary menu.
                      em.displayMenu();  //displays the secondary menu to the user.
                     }
                     

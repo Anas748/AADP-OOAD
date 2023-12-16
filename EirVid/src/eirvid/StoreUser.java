@@ -20,7 +20,7 @@ public class StoreUser implements UserRep {
     public void addUser(User user) {
         userList.put(user.getEmail(), user);
     }
-
+    
     @Override
     public User UserEmail(String email) {
         return userList.get(email);

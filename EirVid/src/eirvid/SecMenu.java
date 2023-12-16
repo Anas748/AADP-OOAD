@@ -15,7 +15,7 @@ public class SecMenu {
     private MovieRentalManager manager;
     private MovieRecommendation reco;
     private User user;
-    
+     private  RentMovie rentalManager;
 
     public SecMenu(User user, MovieRentalManager manager) {
         this.user = user;
@@ -70,7 +70,7 @@ public class SecMenu {
     private void rentMovie() {
         System.out.print("Enter the title of the movie you want to rent: ");
         String title = scanner.nextLine();
-        manager.rentMovie(user.getEmail(), title);
+        manager.rentMovie(this.user, user.getEmail(), title);
     }
 
    public void displayRecommendations() {

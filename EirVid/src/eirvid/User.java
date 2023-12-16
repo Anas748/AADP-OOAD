@@ -31,7 +31,7 @@ public class User {
         this.rentedMovies = new HashMap<>();
     }
 
-    // Getters and setters 
+    // Getters 
     public String getName() {
         return name;
     }
@@ -48,7 +48,8 @@ public class User {
     // Movie related methods
     //Rents a movie for the user.
     public void rentMovie(Movie movie) {
-        rentedMovies.put(movie, System.currentTimeMillis());
+      
+      rentedMovies.put(movie, System.currentTimeMillis());
         System.out.printf("User: %s, Movie: %s, Price: %.2f\n", email, movie.getTitle(), movie.getPrice());
     }
     //Checks if the user has rented a specific movie.
@@ -63,6 +64,12 @@ public class User {
     public Map<Movie, Long> getRentedMoviesWithTime() {
         return rentedMovies;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "name=" + name + ", email=" + email + '}';
+    }
+    
 }
 
 

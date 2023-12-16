@@ -31,7 +31,7 @@ public class MovieRentalManager {
         this.users = new ArrayList<>();
         this.movies = new ArrayList<>();
         this.movieAdder = new MovieAdder(this.movies);
-        this.rentalManager = new RentMovie(this.users,this.movies);
+        this.rentalManager = new RentMovie(this.users,this.movieAdder.getMovies());
     }
     public static MovieRentalManager getInstance() {
         if (instance == null) {
@@ -46,7 +46,7 @@ public class MovieRentalManager {
     }
 
     public List<Movie> getMovies() {
-        return new ArrayList<>(movies);
+        return this.movieAdder.getMovies();
         
     }
      public List<Movie> getRecommendedMovies(String preference) {
@@ -73,8 +73,8 @@ public class MovieRentalManager {
         movieAdder.addMovie(title, price);
     }
 
-    public void rentMovie(String email, String title) {
-        rentalManager.rentMovie(email, title);
+    public void rentMovie(User user, String email, String title) {
+        rentalManager.rentMovie(user, email, title);
     }
 }
     

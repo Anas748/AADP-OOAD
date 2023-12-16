@@ -20,7 +20,9 @@ public class MovieAdder {
     }
 
   
-    
+   public List<Movie> getMovies(){
+       return this.movies;
+   }
         public void addMovie(String title, double price) {      //Adds a new movie to the system with the specified title and price.
         this.movies.add(new Movie(title, price));           //Title & price of the new movie.
     } 
