@@ -19,7 +19,7 @@ public class Registration {
     // initialise for user validations
     private UserValidation emailValidator;
     private UserValidation passwordValidator;
-    User user;
+    private User user;
 
     // Constructor 
     public Registration(UserRep userRepository, UserValidation emailValidator, UserValidation passwordValidator) {
@@ -61,9 +61,9 @@ public class Registration {
         System.out.println("Registration successful");
     }
 
-    public User getUser() {
-        return user;
-    }
+         public User getUser() {
+         return user;
+        }
 }
 
 // Specialized RegistrationUser class for user registration

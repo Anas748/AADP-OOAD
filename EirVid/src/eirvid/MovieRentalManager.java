@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 public class MovieRentalManager {
 
    public static MovieRentalManager instance;       // Singleton instance to ensure only one instance of MovieRentalManager exists.
-    
     // Lists to store users, movies, and instances of related managers.
     private  List<User> users;
     private  List<Movie> movies;
@@ -31,7 +30,7 @@ public class MovieRentalManager {
         this.users = new ArrayList<>();
         this.movies = new ArrayList<>();
         this.movieAdder = new MovieAdder(this.movies);
-        this.rentalManager = new RentMovie(this.users,this.movieAdder.getMovies());
+        this.rentalManager = new RentMovie(users,this.movieAdder.getMovies());
     }
     public static MovieRentalManager getInstance() {
         if (instance == null) {

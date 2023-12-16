@@ -41,7 +41,7 @@ public class Menu {
                     if( login.loginUser() == true){
                      MovieRentalManager manager = MovieRentalManager.getInstance();
                      MovieLoader.loadMovies(manager);      //responsible for loading movies into the manager object.
-                     SecMenu em = new SecMenu(registration.user, manager); //it is responsible for displaying a secondary menu.
+                     SecMenu em = new SecMenu(registration.getUser(), manager); //it is responsible for displaying a secondary menu.
                      em.displayMenu();  //displays the secondary menu to the user.
                     }
                     

@@ -11,11 +11,11 @@ import java.util.Scanner;
  * @author Abdul Rehman
  */
 public class SecMenu {
-     private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     private MovieRentalManager manager;
     private MovieRecommendation reco;
     private User user;
-     private  RentMovie rentalManager;
+    private  RentMovie rentalManager;
 
     public SecMenu(User user, MovieRentalManager manager) {
         this.user = user;
